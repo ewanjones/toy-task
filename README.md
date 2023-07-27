@@ -39,3 +39,15 @@ Run flake 8 with:
 ```sh
 poetry run flake8
 ```
+
+
+## Notes
+
+* I've used Django for this project because it's the framework I'm most familiar with.
+* I think I misunderstood the instructions and called the app the wrong name before I started - I thought 
+it was and application about toys
+
+
+## Future work
+
+* MySQL DB will do for now, but this should be postgres in a real project
