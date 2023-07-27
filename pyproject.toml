@@ -12,6 +12,7 @@ authors = ["Ewan Jones"]
 Django = "<4.2"
 python = "3.11.4"
 envparse = "^0.2.0"
+pydantic = "2.1.1"
 psycopg2-binary = "^2.9.1"
 pytest-django = "^4.5.2"
 
