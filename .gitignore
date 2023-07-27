@@ -1,6 +1,11 @@
 # Python byte-code
 __pycache__/
 *.py[cod]
+.DS_Store
+
+
+# Database
+db.sqlite3
 
 # Distribution / packaging
 *.egg-info/
