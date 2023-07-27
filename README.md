@@ -46,8 +46,14 @@ poetry run flake8
 * I've used Django for this project because it's the framework I'm most familiar with.
 * I think I misunderstood the instructions and called the app the wrong name before I started - I thought 
 it was and application about toys
+* I've split card content into front and back to prevent people from cheating by looking at the back of the card (or opening the network tab??)
 
 
 ## Future work
 
 * MySQL DB will do for now, but this should be postgres in a real project
+* Typing got a bit rushed towards the end..
+* More of the views required:
+    * A view to create a deck
+    * A view to update a card/deck - especially to edit `index`
+    * A view to delete a card/deck

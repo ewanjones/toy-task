@@ -19,3 +19,19 @@ class GetDecks(View):
         return HttpResponse(
             json.dumps({"decks": serialised_decks}), content_type="application/json"
         )
+
+
+class AddCard(View):
+    def post(self, request, *args, **kwargs) -> HttpResponse:
+        if not request.user.is_authenticated:
+            return HttpResponse(status=401)
+
+        data = request.POST
+        card = entities.Card(**data)
+
+        decks = models.Deck.objects.filter(created_by=request.user)
+        serialised_decks = list([entities.Deck.from_model(deck).model_dump() for deck in decks])
+
+        return HttpResponse(
+            json.dumps({"decks": serialised_decks}), content_type="application/json"
+        )

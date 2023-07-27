@@ -10,6 +10,7 @@ config = pydantic.ConfigDict(arbitrary_types_allowed=True)
 class Card(pydantic.BaseModel):
     model_config = config
 
+    deck_id: int
     index: int
     front: str
     back: str
@@ -28,7 +29,10 @@ class Deck(pydantic.BaseModel):
     def from_model(cls, instance: models.Deck) -> "Deck":
         cards = instance.cards.all()
         serialised_cards = [
-            Card(index=card.index, front=card.front, back=card.back).model_dump() for card in cards
+            Card(
+                deck_id=instance.id, index=card.index, front=card.front, back=card.back
+            ).model_dump()
+            for card in cards
         ]
         serialised_cards.sort(key=lambda card: card["index"])
 
