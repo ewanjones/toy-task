@@ -32,6 +32,15 @@ import-linter = "*"
 mypy = "*"
 
 
+[tool.flake8]
+ignore = [
+    "e203",  # whitespace before ':' - conflicts with black
+    "e501",  # line too long - black takes care of this for us
+    "w503",  # line break before binary operator - this is what black does
+]
+
+
+
 [tool.black]
 line-length = 99
 
