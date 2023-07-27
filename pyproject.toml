@@ -15,6 +15,7 @@ envparse = "^0.2.0"
 pydantic = "2.1.1"
 psycopg2-binary = "^2.9.1"
 pytest-django = "^4.5.2"
+django-stubs = "^4.2.3"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -63,3 +64,6 @@ warn_no_return = true
 module = "tests.*"
 allow_untyped_defs = true
 disable_error_code = "attr-defined"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "toys.settings"
