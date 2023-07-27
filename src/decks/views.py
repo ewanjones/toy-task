@@ -10,6 +10,9 @@ from . import entities
 
 class GetDecks(View):
     def get(self, request, *args, **kwargs) -> HttpResponse:
+        if not request.user.is_authenticated:
+            return HttpResponse(status=401)
+
         decks = models.Deck.objects.filter()
         serialised_decks = list([entities.Deck.from_model(deck).model_dump() for deck in decks])
 

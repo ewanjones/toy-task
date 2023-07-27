@@ -24,3 +24,14 @@ def test_view_loads(authenticated_client):
             }
         ]
     }
+
+
+@pytest.mark.django_db
+def test_not_authenticated_return_405(test_client):
+    user = User.objects.create_user("Test", "test@test.com", "testpassword")
+    deck = models.Deck.objects.create(name="test", created_by=user)
+    models.Card.objects.create(deck=deck, index=0, front="test-front", back="test-back")
+
+    response = test_client.get("/decks/")
+
+    assert response.status_code == 401
