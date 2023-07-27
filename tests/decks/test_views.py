@@ -8,9 +8,12 @@ from decks import models
 def test_view_loads(authenticated_client):
     # TODO: tidy this up
     test_client, user = authenticated_client
+    other_user = User.objects.create_user("Other Test", "test2@test.com", "testpassword")
 
     deck = models.Deck.objects.create(name="test", created_by=user)
     models.Card.objects.create(deck=deck, index=0, front="test-front", back="test-back")
+    # Create a deck which should not be returned for this user
+    models.Deck.objects.create(name="test", created_by=other_user)
 
     response = test_client.get("/decks/")
 

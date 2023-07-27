@@ -13,7 +13,7 @@ class GetDecks(View):
         if not request.user.is_authenticated:
             return HttpResponse(status=401)
 
-        decks = models.Deck.objects.filter()
+        decks = models.Deck.objects.filter(created_by=request.user)
         serialised_decks = list([entities.Deck.from_model(deck).model_dump() for deck in decks])
 
         return HttpResponse(
