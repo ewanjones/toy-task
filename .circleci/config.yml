@@ -1,0 +1,22 @@
+version: 2.1
+
+jobs:
+  test:
+    docker:
+      - image: cimg/python:3.11
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: make dev
+      - run:
+          name: Run linters
+          command: make lint
+      - run:
+          name: Run tests
+          command: make test
+
+workflows:
+  test:
+    jobs:
+      - test
