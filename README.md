@@ -47,6 +47,7 @@ poetry run flake8
 * I think I misunderstood the instructions and called the app the wrong name before I started - I thought 
 it was and application about toys
 * I've split card content into front and back to prevent people from cheating by looking at the back of the card (or opening the network tab??)
+* I ended up not going with the schema provided as it's easier to recreate using django migrations, and I added a few more fields to illustrate where I would go with this project
 
 
 ## Future work
@@ -57,3 +58,5 @@ it was and application about toys
     * A view to create a deck
     * A view to update a card/deck - especially to edit `index`
     * A view to delete a card/deck
+* I went for a RESTful approach, but I think GraphQL would be a good way to go for this project due 
+  to the graphical nature of the data (sharing decks between users?)
